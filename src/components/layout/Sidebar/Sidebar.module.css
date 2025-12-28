@@ -1,194 +1,100 @@
-/* =========================
-   SIDEBAR CONTAINER
-========================= */
+/* Simplified Sidebar CSS (module) */
+
+:root {
+  --collapsed-w: 64px;
+  --expanded-w: 260px;
+  --profile-w: 180px;
+  --bg: #f7f7f7;
+  --border: #e5e7eb;
+  --text: #374151;
+  --muted: #9ca3af;
+  --accent: #2563eb;
+  --transition: 200ms ease;
+}
+
+/* Container */
 .sidebar {
-  width: 64px;
+  width: var(--collapsed-w);
   height: 100vh;
-  background: #f7f7f7;
-  border-right: 1px solid #e5e7eb;
+  background: var(--bg);
+  border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   overflow: hidden;
-
   transition: width 320ms cubic-bezier(0.4, 0, 0.2, 1);
   will-change: width;
 }
+.sidebar.expanded { width: var(--expanded-w); }
 
-.expanded {
-  width: 260px;
-}
-
-/* =========================
-   HEADER
-========================= */
-.header {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px 0;
-  justify-content: flex-start;
-}
-
-/* Reserve space so flex never recalculates */
+/* Header / logo / profile space */
+.header { position: relative; display: flex; align-items: center; gap: 12px; padding: 16px 0; }
 .profileWrapper {
   position: relative;
   width: 0;
   height: 50px;
   overflow: hidden;
-  transition: width 200ms ease, margin-left 200ms ease;
-  margin-left: 64px; /* reserve space for fixed logo */
+  margin-left: var(--collapsed-w); /* reserve space for fixed logo */
+  transition: width var(--transition), margin-left var(--transition);
 }
+.sidebar.expanded .profileWrapper { width: var(--profile-w); }
 
-.expanded .profileWrapper {
-  width: 180px;
-}
-
-/* Fixed logo positioned at the same place always (32px from left edge) */
 .logo {
   position: absolute;
   left: 32px;
   top: 50%;
   transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 24px;
-  height: 24px;
-  transition: left 200ms ease, transform 200ms ease;
+  width: 24px; height: 24px;
+  display: flex; align-items: center; justify-content: center;
+  transition: left var(--transition), transform var(--transition);
 }
 
-/* Visual animation only (NO layout animation) */
-.profile {
-  position: absolute;
-  inset: 0;
-
-  opacity: 0;
-  transform: translateX(-12px);
-  transition:
-    opacity 200ms ease,
-    transform 200ms ease;
-
-  pointer-events: none;
-}
-
-.expanded .profile {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-.name {
+/* Shared hidden-to-visible animation for text/profile elements */
+.profile,
+.name,
+.org,
+.label,
+.hint {
+  position: relative;
   opacity: 0;
   transform: translateX(-6px);
   white-space: nowrap;
   pointer-events: none;
-
-  transition:
-    opacity 200ms ease,
-    transform 200ms ease;
+  transition: opacity var(--transition), transform var(--transition);
 }
-
-.expanded .name {
+.sidebar.expanded .profile,
+.sidebar.expanded .name,
+.sidebar.expanded .org,
+.sidebar.expanded .label,
+.sidebar.expanded .hint {
   opacity: 1;
   transform: translateX(0);
   pointer-events: auto;
-  font-weight: 600;
 }
 
-.org {
-  opacity: 0;
-  transform: translateX(-6px);
-  white-space: nowrap;
-  pointer-events: none;
+/* Small tweaks */
+.name { font-weight: 600; }
+.org { color: #6b7280; font-size: 14px; }
+.hint { font-size: 11px; color: var(--muted); }
 
-  transition:
-    opacity 200ms ease,
-    transform 200ms ease;
-  font-size: 14px;
-}
-
-.expanded .org {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-  color: #6b7280;
-  font-size: 14px;
-}
-
-/* =========================
-   MENU
-========================= */
-.menu {
-  padding: 8px;
-}
-
-/* =========================
-   SIDEBAR ITEM
-========================= */
+/* Menu and items */
+.menu { padding: 8px; }
 .item {
   display: grid;
   grid-template-columns: 24px 1fr auto;
   align-items: center;
   gap: 12px;
-
   padding: 10px 12px;
   border-radius: 8px;
   cursor: pointer;
-
-  color: #374151;
+  color: var(--text);
   margin-bottom: 4px;
 }
+.item:not(.active):hover { background: #e5e7eb; }
+.item.active,
+.active { background: var(--accent); color: #fff; }
 
-.item:not(.active):hover {
-  background: #e5e7eb;
-}
+/* Icon container */
+.icon { display: flex; align-items: center; justify-content: center; }
 
-.active {
-  background: #2563eb;
-  color: #ffffff;
-}
-
-/* =========================
-   ICON
-========================= */
-.icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* =========================
-   TEXT ANIMATION (NO BLINK)
-========================= */
-.label,
-.hint {
-  opacity: 0;
-  transform: translateX(-6px);
-  white-space: nowrap;
-  pointer-events: none;
-
-  transition:
-    opacity 200ms ease,
-    transform 200ms ease;
-}
-
-.expanded .label,
-.expanded .hint {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
-}
-
-.hint {
-  font-size: 11px;
-  color: #9ca3af;
-}
-
-/* =========================
-   FOOTER
-========================= */
-.footer {
-  margin-top: auto;
-  padding: 8px;
-}
+/* Footer */
+.footer { margin-top: auto; padding: 8px; }
