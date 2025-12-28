@@ -26,15 +26,36 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 16px;
+  padding: 16px 0;
+  justify-content: flex-start;
 }
 
 /* Reserve space so flex never recalculates */
 .profileWrapper {
   position: relative;
-  width: 180px;
+  width: 0;
   height: 50px;
   overflow: hidden;
+  transition: width 200ms ease, margin-left 200ms ease;
+  margin-left: 64px; /* reserve space for fixed logo */
+}
+
+.expanded .profileWrapper {
+  width: 180px;
+}
+
+/* Fixed logo positioned at the same place always (32px from left edge) */
+.logo {
+  position: absolute;
+  left: 32px;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition: left 200ms ease, transform 200ms ease;
 }
 
 /* Visual animation only (NO layout animation) */

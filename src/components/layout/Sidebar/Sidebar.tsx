@@ -36,7 +36,9 @@ export default function Sidebar() {
       onMouseLeave={() => setExpanded(false)}
     >
       <div className={styles.header}>
-        <LogoIcon />
+        <div className={styles.logo}>
+          <LogoIcon />
+        </div>
         <div className={styles.profileWrapper}>
           <div className={styles.profile}>
             <div className={styles.name}>Candra Delvano Putra</div>
