@@ -1,0 +1,172 @@
+/* =========================
+   SIDEBAR CONTAINER
+========================= */
+.sidebar {
+  width: 64px;
+  height: 100vh;
+  background: #f7f7f7;
+  border-right: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  transition: width 320ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: width;
+}
+
+.expanded {
+  width: 260px;
+}
+
+/* =========================
+   HEADER
+========================= */
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+}
+
+/* Reserve space so flex never recalculates */
+.profileWrapper {
+  position: relative;
+  width: 180px;
+  height: 50px;
+  overflow: hidden;
+}
+
+/* Visual animation only (NO layout animation) */
+.profile {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+  transform: translateX(-12px);
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+
+  pointer-events: none;
+}
+
+.expanded .profile {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.name {
+  opacity: 0;
+  transform: translateX(-6px);
+  white-space: nowrap;
+  pointer-events: none;
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.expanded .name {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  font-weight: 600;
+}
+
+.org {
+  opacity: 0;
+  transform: translateX(-6px);
+  white-space: nowrap;
+  pointer-events: none;
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+  font-size: 14px;
+}
+
+.expanded .org {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* =========================
+   MENU
+========================= */
+.menu {
+  padding: 8px;
+}
+
+/* =========================
+   SIDEBAR ITEM
+========================= */
+.item {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  align-items: center;
+  gap: 12px;
+
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  color: #374151;
+}
+
+.item:hover {
+  background: #e5e7eb;
+}
+
+.active {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* =========================
+   ICON
+========================= */
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* =========================
+   TEXT ANIMATION (NO BLINK)
+========================= */
+.label,
+.hint {
+  opacity: 0;
+  transform: translateX(-6px);
+  white-space: nowrap;
+  pointer-events: none;
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.expanded .label,
+.expanded .hint {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+
+.hint {
+  font-size: 11px;
+  color: #9ca3af;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+  margin-top: auto;
+  padding: 8px;
+}

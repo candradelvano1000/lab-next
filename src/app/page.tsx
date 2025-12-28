@@ -1,5 +1,9 @@
+import Sidebar from '@/components/layout/Sidebar/Sidebar';
+
 export default function Home() {
   return (
-    <>Test</>
+    <>
+      <Sidebar />
+    </>
   );
 }
