@@ -5,3 +5,4 @@ export const CommandIcon = () => <span>⌘</span>;
 export const UpdateIcon = () => <span>🔔</span>;
 export const SettingsIcon = () => <span>⚙️</span>;
 export const FeedbackIcon = () => <span>💬</span>;
+export const DashboardIcon = () => <span>📊</span>;

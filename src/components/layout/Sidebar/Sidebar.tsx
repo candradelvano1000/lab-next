@@ -10,12 +10,17 @@ import {
   UpdateIcon,
   SettingsIcon,
   FeedbackIcon,
+  DashboardIcon,
 } from "./icons";
 
 export default function Sidebar() {
   const [expanded, setExpanded] = useState(false);
 
-  const mainItems = [{ icon: <SpacesIcon />, label: "Spaces", active: true }];
+  const mainItems = [
+    { icon: <DashboardIcon />, label: "Dashboard", active: false },
+    { icon: <SpacesIcon />, label: "Spaces", active: true },
+    
+  ];
   const footerItems = [
     { icon: <HelpIcon />, label: "Help" },
     { icon: <CommandIcon />, label: "Toggle Commands", hint: "Ctrl + K" },

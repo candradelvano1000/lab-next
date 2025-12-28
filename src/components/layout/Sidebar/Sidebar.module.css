@@ -116,9 +116,10 @@
   cursor: pointer;
 
   color: #374151;
+  margin-bottom: 4px;
 }
 
-.item:hover {
+.item:not(.active):hover {
   background: #e5e7eb;
 }
 
