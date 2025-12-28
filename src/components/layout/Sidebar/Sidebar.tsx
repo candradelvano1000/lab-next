@@ -11,7 +11,7 @@ import {
   SettingsIcon,
   FeedbackIcon,
   DashboardIcon,
-} from "./icons";
+} from "@/components/icons/icons";
 
 export default function Sidebar() {
   const [expanded, setExpanded] = useState(false);
