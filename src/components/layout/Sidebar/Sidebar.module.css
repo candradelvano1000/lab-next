@@ -26,6 +26,14 @@
 }
 .sidebar.expanded { width: var(--expanded-w); }
 
+@media (max-width: 768px) {
+  .sidebar.expanded {
+    width: 70%;
+    position: fixed;
+    z-index: 1000;
+  }
+}
+
 /* Header / logo / profile space */
 .header { position: relative; display: flex; align-items: center; gap: 12px; padding: 16px 0; }
 .profileWrapper {
@@ -92,6 +100,15 @@
 .item:not(.active):hover { background: #e5e7eb; }
 .item.active,
 .active { background: var(--accent); color: #fff; }
+
+@media (max-width: 768px) {
+  .header {
+    padding: 12px;
+  }
+  .item {
+    padding: 8px;
+  }
+}
 
 /* Icon container */
 .icon { display: flex; align-items: center; justify-content: center; }
