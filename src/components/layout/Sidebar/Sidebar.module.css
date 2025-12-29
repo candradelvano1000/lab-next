@@ -1,7 +1,7 @@
 /* Simplified Sidebar CSS (module) */
 
 :root {
-  --collapsed-w: 68px;
+  --collapsed-w: 67px;
   --expanded-w: 350px;
   --profile-w: 180px;
   --bg: #f7f7f7;
@@ -10,6 +10,7 @@
   --muted: #9ca3af;
   --accent: #2563eb;
   --transition: 200ms ease;
+  --collapsed-w-mobile: 58px;
 }
 
 /* Container */
@@ -31,6 +32,10 @@
     width: 70%;
     position: fixed;
     z-index: 1000;
+  }
+  .sidebar {
+    position: fixed;
+    width: var(--collapsed-w-mobile);
   }
 }
 
