@@ -1,8 +1,8 @@
 /* Simplified Sidebar CSS (module) */
 
 :root {
-  --collapsed-w: 64px;
-  --expanded-w: 260px;
+  --collapsed-w: 68px;
+  --expanded-w: 350px;
   --profile-w: 180px;
   --bg: #f7f7f7;
   --border: #e5e7eb;
