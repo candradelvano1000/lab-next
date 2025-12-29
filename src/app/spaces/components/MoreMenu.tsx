@@ -19,30 +19,21 @@ export default function MoreMenu() {
 
   return (
     <div className={styles.moreWrapper} ref={ref}>
-      <button
-        className={styles.moreBtn}
-        onClick={() => setOpen(!open)}
-      >
+      <button className={styles.moreBtn} onClick={() => setOpen(prev => !prev)}>
         ⋮
       </button>
 
       {open && (
         <div className={styles.popup}>
           <div className={styles.popupTitle}>Show data for:</div>
-
-          <div className={styles.popupRow}>
-            <label>Month</label>
-            <select>
-              <option>December</option>
-            </select>
-          </div>
-
-          <div className={styles.popupRow}>
-            <label>Year</label>
-            <select>
-              <option>2025</option>
-            </select>
-          </div>
+          {['Month', 'Year'].map((label, index) => (
+            <div key={index} className={styles.popupRow}>
+              <label>{label}</label>
+              <select>
+                <option>{label === 'Month' ? 'December' : '2025'}</option>
+              </select>
+            </div>
+          ))}
         </div>
       )}
     </div>
