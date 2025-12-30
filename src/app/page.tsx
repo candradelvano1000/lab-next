@@ -1,4 +1,4 @@
-import Sidebar from '@/components/layout/sidebar/Sidebar';
+import Sidebar from '@/components/layout/Sidebar/Sidebar';
 import Spaces from '@/app/spaces/page';
 
 export default function Home() {

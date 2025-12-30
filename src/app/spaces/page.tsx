@@ -1,6 +1,7 @@
 import styles from './spaces.module.css';
 import Toolbar from './components/Toolbar';
 import SpacesTable from './components/SpacesTable';
+import WeeklyCodeStats from '@/components/ui/weekCodes'
 
 const SPACES_DATA = [
   {
@@ -41,6 +42,7 @@ export default async function SpacesPage() {
       </header>
       <Toolbar />
       <SpacesTable data={SPACES_DATA} />
+      <WeeklyCodeStats />
     </section>
   );
 }
