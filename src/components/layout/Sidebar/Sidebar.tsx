@@ -12,6 +12,7 @@ import {
   FeedbackIcon,
   DashboardIcon,
 } from "@/components/icons/icons";
+import SidebarItem from "./components/SidebarItem";
 
 export default function Sidebar() {
   const [expanded, setExpanded] = useState(false);
@@ -59,22 +60,5 @@ export default function Sidebar() {
         ))}
       </div>
     </aside>
-  );
-}
-
-interface SidebarItemProps {
-  icon: React.ReactNode;
-  label: string;
-  active?: boolean;
-  hint?: string;
-}
-
-function SidebarItem({ icon, label, active, hint }: SidebarItemProps) {
-  return (
-    <div className={`${styles.item} ${active ? styles.active : ""}`}>
-      <span className={styles.icon}>{icon}</span>
-      <span className={styles.label}>{label}</span>
-      {hint && <span className={styles.hint}>{hint}</span>}
-    </div>
   );
 }
