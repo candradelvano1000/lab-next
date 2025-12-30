@@ -1,3 +1,4 @@
+'use client';
 import { Box, Typography, Paper } from '@mui/material';
 import { BarChart } from '@mui/x-charts/BarChart';
 

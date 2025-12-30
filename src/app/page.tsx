@@ -1,3 +1,4 @@
+'use client';
 import Sidebar from '@/components/layout/Sidebar/Sidebar';
 import Spaces from '@/app/spaces/page';
 

@@ -1,3 +1,4 @@
+'use client';
 import styles from './spaces.module.css';
 import Toolbar from './components/Toolbar';
 import SpacesTable from './components/SpacesTable';
@@ -30,7 +31,7 @@ const SPACES_DATA = [
   },
 ];
 
-export default async function SpacesPage() {
+export default function SpacesPage() {
   return (
     <section className={styles.container}>
       <header className={styles.header}>
